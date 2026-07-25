@@ -16,7 +16,529 @@
                         warning: '#fff7e0',
                         danger: '#ffe9e9',
                         cardBg: '#f8f9fc'
-                       <!-- 专业板块3 设计艺术类 -->
+                    },
+                    fontFamily: {
+                        sans: ['Microsoft YaHei', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .scroll-smooth {scroll-behavior: smooth;}
+            .card-shadow {box-shadow: 0 2px 14px rgba(0,0,0,0.07);}
+            .nav-active {border-b: 3px solid #fff;}
+        }
+        html {scroll-behavior: smooth;}
+        .model-card{transition: transform 0.25s ease;}
+        .model-card:hover{transform: translateY(-4px);}
+        .buy-btn{
+            background:#254b9c;
+            color:white;
+            padding:6px 14px;
+            border-radius:6px;
+            display:inline-block;
+            margin-top:10px;
+            cursor:pointer;
+        }
+        .buy-btn:hover{opacity:0.85;}
+        .lap-img{
+            width:100%;
+            max-width:240px;
+            object-fit:cover;
+            border-radius:8px;
+            background:#eee;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+<!-- 顶部导航 -->
+<header class="bg-primary text-white sticky top-0 z-50 card-shadow">
+    <div class="max-w-6xl mx-auto px-4 py-4">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+            <a href="#top" class="text-xl font-bold">
+                <i class="fa fa-laptop mr-2"></i>新生笔记本选购指南
+            </a>
+            <nav class="flex flex-wrap gap-x-5 gap-y-2 text-sm">
+                <a href="#param" class="py-1 hover:nav-active">参数科普</a>
+                <a href="#major1" class="py-1 hover:nav-active">文科/经管类</a>
+                <a href="#major2" class="py-1 hover:nav-active">普通理工科</a>
+                <a href="#major3" class="py-1 hover:nav-active">设计艺术类</a>
+                <a href="#major4" class="py-1 hover:nav-active">计算机类</a>
+                <a href="#filter" class="py-1 hover:nav-active">机型筛选</a>
+                <a href="#warn" class="py-1 hover:nav-active">避坑指南</a>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<div class="max-w-6xl mx-auto px-4 py-6" id="top">
+    <!-- 首页横幅 -->
+    <section class="bg-white rounded-xl p-6 md:p-8 card-shadow mb-6">
+        <h1 class="text-[clamp(1.6rem,3vw,2.4rem)] font-bold text-primary mb-3">大一新生笔记本电脑选购全指南</h1>
+        <p class="text-gray-600">参考B站主流数码UP推荐｜按专业精准推荐｜拒绝商家套路，买到适合大学四年的电脑</p>
+        <div class="mt-4 p-4 bg-lightBlue rounded-lg">
+            <h3 class="font-bold mb-2">📌 核心选购原则</h3>
+            <p>别盲目冲顶配，也别贪便宜买杂牌。专业需求优先，预算量力而行，够用四年不卡顿就是最优解。</p>
+        </div>
+    </section>
+
+    <!-- 全局价格重要公告 -->
+    <section class="p-4 rounded-lg bg-blue-50 border border-blue-200 card-shadow mb-6">
+        <h3 class="font-bold text-blue-800 text-lg">💰 价格重要说明（务必阅读）</h3>
+        <ul class="space-y-2 mt-2 text-gray-700">
+            <li>1. 页面标注价格为<strong>大促、叠加学生优惠、优惠券后的活动参考区间</strong>；电商日常挂牌价普遍偏高，属于正常现象。</li>
+            <li>2. 同型号笔记本分为多种内存、硬盘配置，不同版本差价很大，下单前核对推荐配置！</li>
+            <li>3. 笔记本价格受开学季、库存、促销活动动态浮动，页面价格仅作比价参考，不作为实时成交价。</li>
+            <li>4. 优先选择【京东自营官方旗舰店】下单，第三方店铺标价过低，警惕改装机、翻新机。</li>
+            <li class="text-red-600 font-medium">⚠️ 微信内置浏览器无法自动唤起京东APP，请复制链接在手机自带浏览器打开，可直接跳转京东App！</li>
+        </ul>
+    </section>
+
+    <!-- 避坑指南 -->
+    <section id="warn" class="bg-white rounded-xl p-6 md:p-8 card-shadow mb-6">
+        <h2 class="text-xl font-bold border-l-4 border-primary pl-3 mb-5">重要避坑指南</h2>
+        <div class="bg-danger p-5 rounded-lg">
+            <ul class="space-y-2">
+                <li>❌ 不要电脑城线下购机，极易被转型、加价、更换低配机型；优先京东自营、品牌天猫官方旗舰店。</li>
+                <li>❌ 不要迷信i7一定强于i5，区分代次，新款中端＞老旧高端。</li>
+                <li>❌ 小白慎买二手笔记本，翻新、暗病风险极高。</li>
+                <li>❌ Mac慎重选择！大量工科软件、建模插件不兼容，游戏支持少；文科、影视设计再考虑Mac。</li>
+                <li>❌ 拒绝商家私自改装的“定制机”，优先官方标配。</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 预算档位快速参考 -->
+    <section class="bg-white rounded-xl p-6 md:p-8 card-shadow mb-6">
+        <h2 class="text-xl font-bold border-l-4 border-primary pl-3 mb-5">预算档位快速参考</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
+            <div class="p-4 rounded-lg bg-lightBlue text-center">
+                <strong>4000元以内</strong>
+                <p class="text-sm mt-1">仅限文科基础办公，避开杂牌</p>
+            </div>
+            <div class="p-4 rounded-lg bg-lightBlue text-center">
+                <strong>4000～6000元</strong>
+                <p class="text-sm mt-1">文科首选，普通理工科入门</p>
+            </div>
+            <div class="p-4 rounded-lg bg-lightBlue text-center">
+                <strong>6000～8000元</strong>
+                <p class="text-sm mt-1">计算机、理工科、轻度设计万金油区间</p>
+            </div>
+            <div class="p-4 rounded-lg bg-lightBlue text-center">
+                <strong>8000元以上</strong>
+                <p class="text-sm mt-1">设计、AI方向、重度游戏长期使用</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 机型智能筛选 -->
+    <section id="filter" class="bg-white rounded-xl p-6 md:p-8 card-shadow mb-6">
+        <h2 class="text-xl font-bold border-l-4 border-primary pl-3 mb-5">🔎 机型智能筛选</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
+            <div>
+                <label class="block mb-2 font-medium">选择专业类别</label>
+                <select id="selMajor" class="w-full border border-gray-300 rounded-lg px-3 py-2.5">
+                    <option value="all">全部专业</option>
+                    <option value="wen">文科 / 经管 / 法学 / 外语类</option>
+                    <option value="ligong">普通理工科</option>
+                    <option value="art">设计艺术类</option>
+                    <option value="cs">计算机/软件/电子信息类</option>
+                </select>
+            </div>
+            <div>
+                <label class="block mb-2 font-medium">预算区间</label>
+                <select id="selPrice" class="w-full border border-gray-300 rounded-lg px-3 py-2.5">
+                    <option value="all">不限预算</option>
+                    <option value="4kdown">4000元以内</option>
+                    <option value="4k">4000~6000元</option>
+                    <option value="6k">6000~8000元</option>
+                    <option value="8k">8000元以上</option>
+                </select>
+            </div>
+        </div>
+        <button onclick="filterModels()" class="bg-primary text-white px-6 py-2.5 rounded-lg hover:opacity-85">开始筛选</button>
+        <div id="filterResult" class="mt-5"></div>
+    </section>
+
+    <!-- 参数科普 -->
+    <section id="param" class="bg-white rounded-xl p-6 md:p-8 card-shadow mb-6">
+        <h2 class="text-xl font-bold border-l-4 border-primary pl-3 mb-5">一、基础参数科普，防止被销售忽悠</h2>
+        <ul class="space-y-2 list-disc pl-5">
+            <li><strong>CPU（处理器）</strong>：日常办公 Ultra5/R5 足够；代码、设计、游戏选择 Ultra7/R7；极致性能考虑 Ultra9/R9。优先新款，新一代中端经常强过上一代高端。</li>
+            <li><strong>显卡</strong>：只办公追剧核显够用；轻度网游、简单PS入门独显；3D建模、视频剪辑、3A游戏建议 RTX5060起步。显卡越强渲染速度、游戏画质上限越高。</li>
+            <li><strong>内存</strong>：16G为当下最低标准；计算机、设计类优先32G，多开软件、虚拟机、大型工程文件不容易卡顿闪退。</li>
+            <li><strong>硬盘</strong>：512G固态标配；需要存放大量素材、安装多款大型软件直接选择1T固态。多数机型支持后期扩容。</li>
+            <li><strong>屏幕</strong>：设计专业强制高色域100%sRGB，避免严重色差；普通专业2.5K/1080P均可；长时间写代码、追剧可选高刷屏。</li>
+            <li><strong>重量续航</strong>：经常携带往返教室图书馆优先1.5kg左右轻薄本；游戏本普遍偏重、续航较差，更适合宿舍固定使用。</li>
+        </ul>
+    </section>
+
+    <!-- 专业板块1 文科 / 经管 / 法学 / 外语类 -->
+    <section id="major1" class="bg-white rounded-xl p-6 md:p-8 card-shadow mb-6 model-group" data-major="wen">
+        <h2 class="text-xl font-bold border-l-4 border-primary pl-3 mb-4">二、文科 / 经管 / 法学 / 外语类</h2>
+        <p class="mb-4 text-gray-600">专业：汉语言、法学、会计、工商管理、英语等 | 用途：Word/Excel/PPT、查阅文献、网课追剧 | 推荐类型：轻薄本</p>
+
+        <!-- 文科｜4000以内 -->
+        <div class="model-card bg-cardBg rounded-lg p-5 mb-4 border-l-4 border-blue-500" data-major="wen" data-price="4kdown">
+            <div class="flex flex-col md:flex-row gap-5 items-start">
+                <img class="lap-img" alt="荣耀MagicBook X14" src="magicbookx14.jpg">
+                <div>
+                    <span class="inline-block bg-blue-100 text-blue-700 text-xs px-2 py-1 rounded mb-2">入门款｜4000内</span>
+                    <h4 class="font-bold text-lg">① 荣耀MagicBook X14 <span class="text-gray-500 text-base">（活动参考：3400-3900元）</span></h4>
+                    <p class="text-orange-600 font-medium text-sm">✅ 认准配置：Ultra5 125H +16G +512G 14英寸</p>
+                    <p class="my-2">预算有限首选，机身轻便，满足文档、网课基础需求，荣耀生态互联。</p>
+                    <a target="_blank" href="https://search.jd.com/Search?keyword=荣耀MagicBook X14" class="buy-btn">
+                        <i class="fa fa-shopping-cart"></i> 京东官方搜索
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="model-card bg-cardBg rounded-lg p-5 mb-4 border-l-4 border-blue-500" data-major="wen" data-price="4kdown">
+            <div class="flex flex-col md:flex-row gap-5 items-start">
+                <img class="lap-img" alt="联想小新14" src="magicbookx16.jpg">
+                <div>
+                    <span class="inline-block bg-blue-100 text-blue-700 text-xs px-2 py-1 rounded mb-2">入门款｜4000内</span>
+                    <h4 class="font-bold text-lg">② 联想小新14 <span class="text-gray-500 text-base">（活动参考：3399-3899元）</span></h4>
+                    <p class="text-orange-600 font-medium text-sm">✅ 认准配置：Ultra5 125H +16G +512G 高色域屏</p>
+                    <p class="my-2">金属机身，护眼屏幕，联想售后网点多，适合长期图书馆学习。</p>
+                    <a target="_blank" href="https://search.jd.com/Search?keyword=联想小新14" class="buy-btn">
+                        <i class="fa fa-shopping-cart"></i> 京东官方搜索
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="model-card bg-cardBg rounded-lg p-5 mb-4 border-l-4 border-blue-500" data-major="wen" data-price="4kdown">
+            <div class="flex flex-col md:flex-row gap-5 items-start">
+                <img class="lap-img" alt="RedmiBook 14 焕新版" src="zhan66.jpg">
+                <div>
+                    <span class="inline-block bg-blue-100 text-blue-700 text-xs px-2 py-1 rounded mb-2">入门款｜4000内</span>
+                    <h4 class="font-bold text-lg">③ RedmiBook 14 焕新版 <span class="text-gray-500 text-base">（活动参考：3299-3799元）</span></h4>
+                    <p class="text-orange-600 font-medium text-sm">✅ 认准配置：Ultra5 125H +16G +512G</p>
+                    <p class="my-2">小米生态联动，接口齐全，性价比高，日常办公网课足够。</p>
+                    <a target="_blank" href="https://search.jd.com/Search?keyword=RedmiBook 14 焕新版" class="buy-btn">
+                        <i class="fa fa-shopping-cart"></i> 京东官方搜索
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 文科｜4000~6000 -->
+        <div class="model-card bg-cardBg rounded-lg p-5 mb-4 border-l-4 border-blue-500" data-major="wen" data-price="4k">
+            <div class="flex flex-col md:flex-row gap-5 items-start">
+                <img class="lap-img" alt="荣耀MagicBook X16 2026" src="magicbookx16.jpg">
+                <div>
+                    <span class="inline-block bg-blue-100 text-blue-700 text-xs px-2 py-1 rounded mb-2">性价比款｜4k~6k</span>
+                    <h4 class="font-bold text-lg">① 荣耀MagicBook X16 2026 <span class="text-gray-500 text-base">（活动参考：3900-4300元）</span></h4>
+                    <p class="text-orange-600 font-medium text-sm">✅ 认准配置：Ultra5 125H + 24G内存 + 1T固态 + 16英寸2.5K 120Hz屏</p>
+                    <p class="my-2">适合预算有限、华为/荣耀手机用户，大屏浏览文献，多屏协同方便。</p>
+                    <a target="_blank" href="https://search.jd.com/Search?keyword=荣耀MagicBook X16 2026" class="buy-btn">
+                        <i class="fa fa-shopping-cart"></i> 京东官方搜索
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="model-card bg-cardBg rounded-lg p-5 mb-4 border-l-4 border-blue-500" data-major="wen" data-price="4k">
+            <div class="flex flex-col md:flex-row gap-5 items-start">
+                <img class="lap-img" alt="惠普战66 七代" src="zhan66.jpg">
+                <div>
+                    <span class="inline-block bg-green-100 text-green-700 text-xs px-2 py-1 rounded mb-2">主流稳妥款｜4k~6k</span>
+                    <h4 class="font-bold text-lg">② 惠普战66 七代 <span class="text-gray-500 text-base">（活动参考：4200-4800元）</span></h4>
+                    <p class="text-orange-600 font-medium text-sm">✅ 认准配置：Ultra5 225U + 16G + 512G +14英寸高色域屏</p>
+                    <p class="my-2">接口齐全自带网口，机身耐用，续航优秀，线下售后网点多，小白首选。</p>
+                    <a target="_blank" href="https://search.jd.com/Search?keyword=惠普战66 七代" class="buy-btn">
+                        <i class="fa fa-shopping-cart"></i> 京东官方搜索
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="model-card bg-cardBg rounded-lg p-5 mb-4 border-l-4 border-blue-500" data-major="wen" data-price="4k">
+            <div class="flex flex-col md:flex-row gap-5 items-start">
+                <img class="lap-img" alt="华硕无畏14 2026" src="xiaoxinpro14.jpg">
+                <div>
+                    <span class="inline-block bg-green-100 text-green-700 text-xs px-2 py-1 rounded mb-2">主流稳妥款｜4k~6k</span>
+                    <h4 class="font-bold text-lg">③ 华硕无畏14 2026 <span class="text-gray-500 text-base">（活动参考：4500-5200元）</span></h4>
+                    <p class="text-orange-600 font-medium text-sm">✅ 认准配置：Ultra5 226V +16G +1T OLED护眼屏</p>
+                    <p class="my-2">色彩观感优秀，机身轻薄静音，适合长时间写论文、浏览资料。</p>
+                    <a target="_blank" href="https://search.jd.com/Search?keyword=华硕无畏14 2026" class="buy-btn">
+                        <i class="fa fa-shopping-cart"></i> 京东官方搜索
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 文科｜6000~8000 -->
+        <div class="model-card bg-cardBg rounded-lg p-5 mb-4 border-l-4 border-blue-500" data-major="wen" data-price="6k">
+            <div class="flex flex-col md:flex-row gap-5 items-start">
+                <img class="lap-img" alt="联想小新Pro14 GT AI元启版" src="xiaoxinpro14.jpg">
+                <div>
+                    <span class="inline-block bg-amber-100 text-amber-700 text-xs px-2 py-1 rounded mb-2">一步到位款｜6k~8k</span>
+                    <h4 class="font-bold text-lg">① 联想小新Pro14 GT AI元启版 <span class="text-gray-500 text-base">（活动参考：5500-6200元）</span></h4>
+                    <p class="text-orange-600 font-medium text-sm">✅ 认准配置：Ultra5 226V +32G +1T +2.8K 120Hz高刷屏</p>
+                    <p class="my-2">性能释放强，大内存保障四年流畅，偶尔剪辑短视频、批量处理文献毫无压力。</p>
+                    <a target="_blank" href="https://search.jd.com/Search?keyword=联想小新Pro14 GT AI元启版" class="buy-btn">
+                        <i class="fa fa-shopping-cart"></i> 京东官方搜索
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="model-card bg-cardBg rounded-lg p-5 mb-4 border-l-4 border-blue-500" data-major="wen" data-price="6k">
+            <div class="flex flex-col md:flex-row gap-5 items-start">
+                <img class="lap-img" alt="ThinkBook 14+ 2026" src="thinkbook14plus.jpg">
+                <div>
+                    <span class="inline-block bg-amber-100 text-amber-700 text-xs px-2 py-1 rounded mb-2">一步到位款｜6k~8k</span>
+                    <h4 class="font-bold text-lg">② ThinkBook 14+ 2026 <span class="text-gray-500 text-base">（活动参考：5800-6500元）</span></h4>
+                    <p class="text-orange-600 font-medium text-sm">✅ 认准配置：Ultra7 228H +32G +1T 全接口</p>
+                    <p class="my-2">接口极其齐全，无需拓展坞，兼顾办公与轻度创作，可外接显示器。</p>
+                    <a target="_blank" href="https://search.jd.com/Search?keyword=ThinkBook 14+ 2026" class="buy-btn">
+                        <i class="fa fa-shopping-cart"></i> 京东官方搜索
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="model-card bg-cardBg rounded-lg p-5 mb-4 border-l-4 border-blue-500" data-major="wen" data-price="6k">
+            <div class="flex flex-col md:flex-row gap-5 items-start">
+                <img class="lap-img" alt="荣耀MagicBook 14 2026" src="magicbookx14.jpg">
+                <div>
+                    <span class="inline-block bg-amber-100 text-amber-700 text-xs px-2 py-1 rounded mb-2">一步到位款｜6k~8k</span>
+                    <h4 class="font-bold text-lg">③ 荣耀MagicBook 14 2026 <span class="text-gray-500 text-base">（活动参考：6200-7200元）</span></h4>
+                    <p class="text-orange-600 font-medium text-sm">✅ 认准配置：Ultra7 +32G +1T 长续航</p>
+                    <p class="my-2">大电池长续航，多屏协同体验优秀，适合经常外出上课不带电源。</p>
+                    <a target="_blank" href="https://search.jd.com/Search?keyword=荣耀MagicBook 14 2026" class="buy-btn">
+                        <i class="fa fa-shopping-cart"></i> 京东官方搜索
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 文科｜8000以上 -->
+        <div class="model-card bg-cardBg rounded-lg p-5 mb-4 border-l-4 border-blue-500" data-major="wen" data-price="8k">
+            <div class="flex flex-col md:flex-row gap-5 items-start">
+                <img class="lap-img" alt="华为MateBook 14s" src="matebook14s.jpg">
+                <div>
+                    <span class="inline-block bg-purple-100 text-purple-700 text-xs px-2 py-1 rounded mb-2">高端质感款｜8k+</span>
+                    <h4 class="font-bold text-lg">① 华为MateBook 14s 2026高配 <span class="text-gray-500 text-base">（活动参考：8200-9000元）</span></h4>
+                    <p class="text-orange-600 font-medium text-sm">✅ 认准配置：Ultra7 +32G +1T 触控屏</p>
+                    <p class="my-2">多屏协同体验拉满，做工精致、静音舒适，适合华为生态重度用户。</p>
+                    <a target="_blank" href="https://search.jd.com/Search?keyword=华为MateBook 14s 2026" class="buy-btn">
+                        <i class="fa fa-shopping-cart"></i> 京东官方搜索
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="model-card bg-cardBg rounded-lg p-5 mb-4 border-l-4 border-blue-500" data-major="wen" data-price="8k">
+            <div class="flex flex-col md:flex-row gap-5 items-start">
+                <img class="lap-img" alt="联想小新Pro16 GT" src="xiaoxinpro16.jpg">
+                <div>
+                    <span class="inline-block bg-purple-100 text-purple-700 text-xs px-2 py-1 rounded mb-2">高端质感款｜8k+</span>
+                    <h4 class="font-bold text-lg">② 联想小新Pro16 GT <span class="text-gray-500 text-base">（活动参考：8300-9100元）</span></h4>
+                    <p class="text-orange-600 font-medium text-sm">✅ 认准配置：Ultra9 +32G +1T 大屏高刷</p>
+                    <p class="my-2">16寸大屏视野开阔，性能充足，兼顾论文排版与短视频剪辑。</p>
+                    <a target="_blank" href="https://search.jd.com/Search?keyword=联想小新Pro16 GT" class="buy-btn">
+                        <i class="fa fa-shopping-cart"></i> 京东官方搜索
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="model-card bg-cardBg rounded-lg p-5 mb-4 border-l-4 border-blue-500" data-major="wen" data-price="8k">
+            <div class="flex flex-col md:flex-row gap-5 items-start">
+                <img class="lap-img" alt="ThinkPad X14" src="zhan66.jpg">
+                <div>
+                    <span class="inline-block bg-purple-100 text-purple-700 text-xs px-2 py-1 rounded mb-2">高端质感款｜8k+</span>
+                    <h4 class="font-bold text-lg">③ ThinkPad X14 <span class="text-gray-500 text-base">（活动参考：8500-9300元）</span></h4>
+                    <p class="text-orange-600 font-medium text-sm">✅ 认准配置：Ultra7 +32G +1T 商务机身</p>
+                    <p class="my-2">军工级耐用机身，键盘手感极佳，适合长期文字办公、毕业论文写作。</p>
+                    <a target="_blank" href="https://search.jd.com/Search?keyword=ThinkPad X14" class="buy-btn">
+                        <i class="fa fa-shopping-cart"></i> 京东官方搜索
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 专业板块2 普通理工科 -->
+    <section id="major2" class="bg-white rounded-xl p-6 md:p-8 card-shadow mb-6 model-group" data-major="ligong">
+        <h2 class="text-xl font-bold border-l-4 border-primary pl-3 mb-4">三、普通理工科：机械、土木、自动化、电气、化工、物理</h2>
+        <p class="mb-4 text-gray-600">软件需求：AutoCAD、SolidWorks、Matlab、仿真程序｜类型：全能本 / 入门游戏本</p>
+
+        <!-- 理工科｜4000以内 -->
+        <div class="model-card bg-cardBg rounded-lg p-5 mb-4 border-l-4 border-blue-500" data-major="ligong" data-price="4kdown">
+            <div class="flex flex-col md:flex-row gap-5 items-start">
+                <img class="lap-img" alt="荣耀MagicBook X16" src="magicbookx16.jpg">
+                <div>
+                    <span class="inline-block bg-blue-100 text-blue-700 text-xs px-2 py-1 rounded mb-2">入门款｜4000内（仅轻度绘图）</span>
+                    <h4 class="font-bold text-lg">① 荣耀MagicBook X16 集显版 <span class="text-gray-500 text-base">（活动参考：3700-3999元）</span></h4>
+                    <p class="text-orange-600 font-medium text-sm">✅ 认准配置：Ultra5 +24G+1T</p>
+                    <p class="my-2">只进行简单二维CAD、文档仿真；复杂三维建模不推荐。</p>
+                    <a target="_blank" href="https://search.jd.com/Search?keyword=荣耀MagicBook X16 2026" class="buy-btn">
+                        <i class="fa fa-shopping-cart"></i> 京东官方搜索
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="model-card bg-cardBg rounded-lg p-5 mb-4 border-l-4 border-blue-500" data-major="ligong" data-price="4kdown">
+            <div class="flex flex-col md:flex-row gap-5 items-start">
+                <img class="lap-img" alt="联想小新16" src="xiaoxinpro16.jpg">
+                <div>
+                    <span class="inline-block bg-blue-100 text-blue-700 text-xs px-2 py-1 rounded mb-2">入门款｜4000内（仅轻度绘图）</span>
+                    <h4 class="font-bold text-lg">② 联想小新16 <span class="text-gray-500 text-base">（活动参考：3699-3999元）</span></h4>
+                    <p class="text-orange-600 font-medium text-sm">✅ 认准配置：Ultra5 +24G+1T 大屏</p>
+                    <p class="my-2">16寸大屏看图方便，适合CAD二维图纸、课堂仿真作业。</p>
+                    <a target="_blank" href="https://search.jd.com/Search?keyword=联想小新16" class="buy-btn">
+                        <i class="fa fa-shopping-cart"></i> 京东官方搜索
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="model-card bg-cardBg rounded-lg p-5 mb-4 border-l-4 border-blue-500" data-major="ligong" data-price="4kdown">
+            <div class="flex flex-col md:flex-row gap-5 items-start">
+                <img class="lap-img" alt="RedmiBook 16" src="zhan66.jpg">
+                <div>
+                    <span class="inline-block bg-blue-100 text-blue-700 text-xs px-2 py-1 rounded mb-2">入门款｜4000内（仅轻度绘图）</span>
+                    <h4 class="font-bold text-lg">③ RedmiBook 16 <span class="text-gray-500 text-base">（活动参考：3599-3899元）</span></h4>
+                    <p class="text-orange-600 font-medium text-sm">✅ 认准配置：Ultra5 +16G+1T</p>
+                    <p class="my-2">性价比大屏本，满足基础课程绘图、文档处理需求。</p>
+                    <a target="_blank" href="https://search.jd.com/Search?keyword=RedmiBook 16" class="buy-btn">
+                        <i class="fa fa-shopping-cart"></i> 京东官方搜索
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 理工科｜4000~6000 -->
+        <div class="model-card bg-cardBg rounded-lg p-5 mb-4 border-l-4 border-blue-500" data-major="ligong" data-price="4k">
+            <div class="flex flex-col md:flex-row gap-5 items-start">
+                <img class="lap-img" alt="ThinkBook 14+ 2026 锐龙版" src="thinkbook14plus.jpg">
+                <div>
+                    <span class="inline-block bg-blue-100 text-blue-700 text-xs px-2 py-1 rounded mb-2">性价比全能款｜4k~6k</span>
+                    <h4 class="font-bold text-lg">① ThinkBook 14+ 2026 锐龙版 <span class="text-gray-500 text-base">（活动参考：5400-6000元）</span></h4>
+                    <p class="text-orange-600 font-medium text-sm">✅ 认准配置：R7-8845H +32G +1T +14.5英寸2.5K 120Hz</p>
+                    <p class="my-2">重量轻便适合携带去实验室，大内存应对多图纸、多仿真窗口。</p>
+                    <a target="_blank" href="https://search.jd.com/Search?keyword=ThinkBook 14+ 2026 锐龙版" class="buy-btn">
+                        <i class="fa fa-shopping-cart"></i> 京东官方搜索
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="model-card bg-cardBg rounded-lg p-5 mb-4 border-l-4 border-blue-500" data-major="ligong" data-price="4k">
+            <div class="flex flex-col md:flex-row gap-5 items-start">
+                <img class="lap-img" alt="华硕无畏Pro16" src="magicbookx16.jpg">
+                <div>
+                    <span class="inline-block bg-blue-100 text-blue-700 text-xs px-2 py-1 rounded mb-2">性价比全能款｜4k~6k</span>
+                    <h4 class="font-bold text-lg">② 华硕无畏Pro16 <span class="text-gray-500 text-base">（活动参考：5200-5900元）</span></h4>
+                    <p class="text-orange-600 font-medium text-sm">✅ 认准配置：R7-8845H +32G +1T OLED大屏</p>
+                    <p class="my-2">大屏看图舒适，色彩优秀，兼顾绘图、网课与轻度网游。</p>
+                    <a target="_blank" href="https://search.jd.com/Search?keyword=华硕无畏Pro16" class="buy-btn">
+                        <i class="fa fa-shopping-cart"></i> 京东官方搜索
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="model-card bg-cardBg rounded-lg p-5 mb-4 border-l-4 border-blue-500" data-major="ligong" data-price="4k">
+            <div class="flex flex-col md:flex-row gap-5 items-start">
+                <img class="lap-img" alt="联想小新Pro16 锐龙版" src="xiaoxinpro16.jpg">
+                <div>
+                    <span class="inline-block bg-blue-100 text-blue-700 text-xs px-2 py-1 rounded mb-2">性价比全能款｜4k~6k</span>
+                    <h4 class="font-bold text-lg">③ 联想小新Pro16 锐龙版 <span class="text-gray-500 text-base">（活动参考：5300-5999元）</span></h4>
+                    <p class="text-orange-600 font-medium text-sm">✅ 认准配置：R7-8845H +32G +1T 2.5K大屏</p>
+                    <p class="my-2">性能释放均衡，适合土木、机械专业CAD/SolidWorks基础课程。</p>
+                    <a target="_blank" href="https://search.jd.com/Search?keyword=联想小新Pro16 锐龙版" class="buy-btn">
+                        <i class="fa fa-shopping-cart"></i> 京东官方搜索
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 理工科｜6000~8000 -->
+        <div class="model-card bg-cardBg rounded-lg p-5 mb-4 border-l-4 border-blue-500" data-major="ligong" data-price="6k">
+            <div class="flex flex-col md:flex-row gap-5 items-start">
+                <img class="lap-img" alt="惠普暗影精灵10 乐享版" src="anxi10.jpg">
+                <div>
+                    <span class="inline-block bg-green-100 text-green-700 text-xs px-2 py-1 rounded mb-2">主流游戏本款｜6k~8k</span>
+                    <h4 class="font-bold text-lg">① 惠普暗影精灵10 乐享版 <span class="text-gray-500 text-base">（活动参考：6300-7000元）</span></h4>
+                    <p class="text-orange-600 font-medium text-sm">✅ 认准配置：i7-14650HX + RTX5050 +16G +1T</p>
+                    <p class="my-2">一线品牌入门游戏本，工程建模流畅，兼顾主流网络游戏。</p>
+                    <a target="_blank" href="https://search.jd.com/Search?keyword=惠普暗影精灵10 乐享版" class="buy-btn">
+                        <i class="fa fa-shopping-cart"></i> 京东官方搜索
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="model-card bg-cardBg rounded-lg p-5 mb-4 border-l-4 border-blue-500" data-major="ligong" data-price="6k">
+            <div class="flex flex-col md:flex-row gap-5 items-start">
+                <img class="lap-img" alt="华硕天选6 Pro 锐龙版" src="tianxuan6pro.jpg">
+                <div>
+                    <span class="inline-block bg-amber-100 text-amber-700 text-xs px-2 py-1 rounded mb-2">一步到位款｜6k~8k</span>
+                    <h4 class="font-bold text-lg">② 华硕天选6 Pro 锐龙版 <span class="text-gray-500 text-base">（活动参考：6900-7600元）</span></h4>
+                    <p class="text-orange-600 font-medium text-sm">✅ 认准配置：R9-8940HX + RTX5060满血 +16G+1T 2.5K 165Hz</p>
+                    <p class="my-2">本科全部工程软件通吃，重度建模、简易渲染，3A游戏高画质运行。</p>
+                    <a target="_blank" href="https://search.jd.com/Search?keyword=华硕天选6 Pro 锐龙版" class="buy-btn">
+                        <i class="fa fa-shopping-cart"></i> 京东官方搜索
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="model-card bg-cardBg rounded-lg p-5 mb-4 border-l-4 border-blue-500" data-major="ligong" data-price="6k">
+            <div class="flex flex-col md:flex-row gap-5 items-start">
+                <img class="lap-img" alt="联想来酷斗战者7000" src="jixiegemingx.jpg">
+                <div>
+                    <span class="inline-block bg-green-100 text-green-700 text-xs px-2 py-1 rounded mb-2">主流游戏本款｜6k~8k</span>
+                    <h4 class="font-bold text-lg">③ 联想来酷斗战者7000 <span class="text-gray-500 text-base">（活动参考：6400-7100元）</span></h4>
+                    <p class="text-orange-600 font-medium text-sm">✅ 认准配置：i7-14650HX + RTX5050 +16G +1T</p>
+                    <p class="my-2">联想售后体系，性价比游戏本，满足三维建模、仿真与游戏需求。</p>
+                    <a target="_blank" href="https://search.jd.com/Search?keyword=联想来酷斗战者7000" class="buy-btn">
+                        <i class="fa fa-shopping-cart"></i> 京东官方搜索
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 理工科｜8000以上 -->
+        <div class="model-card bg-cardBg rounded-lg p-5 mb-4 border-l-4 border-blue-500" data-major="ligong" data-price="8k">
+            <div class="flex flex-col md:flex-row gap-5 items-start">
+                <img class="lap-img" alt="联想拯救者R9000P 2026" src="r9000p.jpg">
+                <div>
+                    <span class="inline-block bg-purple-100 text-purple-700 text-xs px-2 py-1 rounded mb-2">高性能顶配｜8k+</span>
+                    <h4 class="font-bold text-lg">① 联想拯救者R9000P 2026 <span class="text-gray-500 text-base">（活动参考：8300-9200元）</span></h4>
+                    <p class="text-orange-600 font-medium text-sm">✅ 认准配置：R9-8945HX + RTX5070 +32G +1T，240Hz高刷屏</p>
+                    <p class="my-2">应对大型三维模型、复杂有限元仿真，散热能力强，兼顾游戏。</p>
+                    <a target="_blank" href="https://search.jd.com/Search?keyword=联想拯救者R9000P 2026" class="buy-btn">
+                        <i class="fa fa-shopping-cart"></i> 京东官方搜索
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="model-card bg-cardBg rounded-lg p-5 mb-4 border-l-4 border-blue-500" data-major="ligong" data-price="8k">
+            <div class="flex flex-col md:flex-row gap-5 items-start">
+                <img class="lap-img" alt="惠普暗影精灵11" src="anxi10.jpg">
+                <div>
+                    <span class="inline-block bg-purple-100 text-purple-700 text-xs px-2 py-1 rounded mb-2">高性能顶配｜8k+</span>
+                    <h4 class="font-bold text-lg">② 惠普暗影精灵11 <span class="text-gray-500 text-base">（活动参考：8400-9300元）</span></h4>
+                    <p class="text-orange-600 font-medium text-sm">✅ 认准配置：i9-14900HX + RTX5070 +32G +1T</p>
+                    <p class="my-2">多核性能强劲，适合长期动力学仿真、大型装配体三维建模。</p>
+                    <a target="_blank" href="https://search.jd.com/Search?keyword=惠普暗影精灵11" class="buy-btn">
+                        <i class="fa fa-shopping-cart"></i> 京东官方搜索
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="model-card bg-cardBg rounded-lg p-5 mb-4 border-l-4 border-blue-500" data-major="ligong" data-price="8k">
+            <div class="flex flex-col md:flex-row gap-5 items-start">
+                <img class="lap-img" alt="ROG魔霸6 Pro" src="tianxuan6pro.jpg">
+                <div>
+                    <span class="inline-block bg-purple-100 text-purple-700 text-xs px-2 py-1 rounded mb-2">高性能顶配｜8k+</span>
+                    <h4 class="font-bold text-lg">③ ROG魔霸6 Pro <span class="text-gray-500 text-base">（活动参考：8600-9500元）</span></h4>
+                    <p class="text-orange-600 font-medium text-sm">✅ 认准配置：R9-8945HX + RTX5070 +32G +1T 2.5K高刷</p>
+                    <p class="my-2">优秀散热与屏幕素质，重度建模渲染，同时兼顾3A游戏。</p>
+                    <a target="_blank" href="https://search.jd.com/Search?keyword=ROG魔霸6 Pro" class="buy-btn">
+                        <i class="fa fa-shopping-cart"></i> 京东官方搜索
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- 专业板块3 设计艺术类 -->
     <section id="major3" class="bg-white rounded-xl p-6 md:p-8 card-shadow mb-6 model-group" data-major="art">
         <h2 class="text-xl font-bold border-l-4 border-primary pl-3 mb-4">四、设计艺术类：视传、数媒、建筑学、工业设计、影视编导、摄影</h2>
         <p class="mb-4 text-gray-600">软件：PS、PR、AE、3DMax、Lumion、犀牛，大量渲染调色｜类型：高性能创作游戏本</p>
@@ -96,7 +618,7 @@
         </div>
         <div class="model-card bg-cardBg rounded-lg p-5 mb-4 border-l-4 border-blue-500" data-major="art" data-price="4k">
             <div class="flex flex-col md:flex-row gap-5 items-start">
-                <img class="lap-img" alt="ThinkBook 16+ 独显版" src="thinkbook14plus.jpg">
+                <img class="lap-img" alt="ThinkBook 16+" src="thinkbook16plus.jpg">
                 <div>
                     <span class="inline-block bg-blue-100 text-blue-700 text-xs px-2 py-1 rounded mb-2">入门创作款｜4k~6k</span>
                     <h4 class="font-bold text-lg">③ ThinkBook 16+ 独显版 <span class="text-gray-500 text-base">（活动参考：5500-5950元）</span></h4>
@@ -140,7 +662,7 @@
         </div>
         <div class="model-card bg-cardBg rounded-lg p-5 mb-4 border-l-4 border-blue-500" data-major="art" data-price="6k">
             <div class="flex flex-col md:flex-row gap-5 items-start">
-                <img class="lap-img" alt="联想来酷斗战者7000" src="jixiegemingx.jpg">
+                <img class="lap-img" alt="联想来酷斗战者7000" src="douzhanzhe7000.jpg">
                 <div>
                     <span class="inline-block bg-green-100 text-green-700 text-xs px-2 py-1 rounded mb-2">主流创作游戏本｜6k~8k</span>
                     <h4 class="font-bold text-lg">③ 联想来酷斗战者7000 <span class="text-gray-500 text-base">（活动参考：6400-7100元）</span></h4>
@@ -156,7 +678,7 @@
         <!-- 设计艺术｜8000以上 -->
         <div class="model-card bg-cardBg rounded-lg p-5 mb-4 border-l-4 border-blue-500" data-major="art" data-price="8k">
             <div class="flex flex-col md:flex-row gap-5 items-start">
-                <img class="lap-img" alt="联想拯救者R9000P 2026" src="r9000p.jpg">
+                <img class="lap-img" alt="联想拯救者R9000P 2026" src="r9000p2026.jpg">
                 <div>
                     <span class="inline-block bg-purple-100 text-purple-700 text-xs px-2 py-1 rounded mb-2">高性能创作顶配｜8k+</span>
                     <h4 class="font-bold text-lg">① 联想拯救者R9000P 2026 <span class="text-gray-500 text-base">（活动参考：8300-9200元）</span></h4>
@@ -170,7 +692,7 @@
         </div>
         <div class="model-card bg-cardBg rounded-lg p-5 mb-4 border-l-4 border-blue-500" data-major="art" data-price="8k">
             <div class="flex flex-col md:flex-row gap-5 items-start">
-                <img class="lap-img" alt="惠普暗影精灵11" src="anxi10.jpg">
+                <img class="lap-img" alt="惠普暗影精灵11" src="anxi11.jpg">
                 <div>
                     <span class="inline-block bg-purple-100 text-purple-700 text-xs px-2 py-1 rounded mb-2">高性能创作顶配｜8k+</span>
                     <h4 class="font-bold text-lg">② 惠普暗影精灵11 <span class="text-gray-500 text-base">（活动参考：8400-9300元）</span></h4>
@@ -184,13 +706,13 @@
         </div>
         <div class="model-card bg-cardBg rounded-lg p-5 mb-4 border-l-4 border-blue-500" data-major="art" data-price="8k">
             <div class="flex flex-col md:flex-row gap-5 items-start">
-                <img class="lap-img" alt="ROG魔霸6 Pro" src="tianxuan6pro.jpg">
+                <img class="lap-img" alt="ROG魔霸新锐 2025" src="mobaxinrui2025.jpg">
                 <div>
                     <span class="inline-block bg-purple-100 text-purple-700 text-xs px-2 py-1 rounded mb-2">高性能创作顶配｜8k+</span>
-                    <h4 class="font-bold text-lg">③ ROG魔霸6 Pro <span class="text-gray-500 text-base">（活动参考：8600-9500元）</span></h4>
+                    <h4 class="font-bold text-lg">③ ROG魔霸新锐 2025 <span class="text-gray-500 text-base">（活动参考：8600-9500元）</span></h4>
                     <p class="text-orange-600 font-medium text-sm">✅ 认准配置：R9-8945HX + RTX5070 +32G +1T 2.5K专业色准屏</p>
                     <p class="my-2">屏幕素质拉满，外观简约，适合追求颜值与渲染性能的设计生。</p>
-                    <a target="_blank" href="https://search.jd.com/Search?keyword=ROG魔霸6 Pro" class="buy-btn">
+                    <a target="_blank" href="https://search.jd.com/Search?keyword=ROG魔霸新锐 2025" class="buy-btn">
                         <i class="fa fa-shopping-cart"></i> 京东官方搜索
                     </a>
                 </div>
@@ -322,7 +844,7 @@
         </div>
         <div class="model-card bg-cardBg rounded-lg p-5 mb-4 border-l-4 border-blue-500" data-major="cs" data-price="6k">
             <div class="flex flex-col md:flex-row gap-5 items-start">
-                <img class="lap-img" alt="联想来酷斗战者7000" src="jixiegemingx.jpg">
+                <img class="lap-img" alt="联想来酷斗战者7000" src="douzhanzhe7000.jpg">
                 <div>
                     <span class="inline-block bg-green-100 text-green-700 text-xs px-2 py-1 rounded mb-2">编程游戏本｜6k~8k</span>
                     <h4 class="font-bold text-lg">③ 联想来酷斗战者7000 <span class="text-gray-500 text-base">（活动参考：6400-7100元）</span></h4>
@@ -338,7 +860,7 @@
         <!-- 计算机｜8000以上 -->
         <div class="model-card bg-cardBg rounded-lg p-5 mb-4 border-l-4 border-blue-500" data-major="cs" data-price="8k">
             <div class="flex flex-col md:flex-row gap-5 items-start">
-                <img class="lap-img" alt="联想拯救者R9000P 2026" src="r9000p.jpg">
+                <img class="lap-img" alt="联想拯救者R9000P 2026" src="r9000p2026.jpg">
                 <div>
                     <span class="inline-block bg-purple-100 text-purple-700 text-xs px-2 py-1 rounded mb-2">高性能编程顶配｜8k+</span>
                     <h4 class="font-bold text-lg">① 联想拯救者R9000P 2026 <span class="text-gray-500 text-base">（活动参考：8300-9200元）</span></h4>
@@ -352,7 +874,7 @@
         </div>
         <div class="model-card bg-cardBg rounded-lg p-5 mb-4 border-l-4 border-blue-500" data-major="cs" data-price="8k">
             <div class="flex flex-col md:flex-row gap-5 items-start">
-                <img class="lap-img" alt="惠普暗影精灵11" src="anxi10.jpg">
+                <img class="lap-img" alt="惠普暗影精灵11" src="anxi11.jpg">
                 <div>
                     <span class="inline-block bg-purple-100 text-purple-700 text-xs px-2 py-1 rounded mb-2">高性能编程顶配｜8k+</span>
                     <h4 class="font-bold text-lg">② 惠普暗影精灵11 <span class="text-gray-500 text-base">（活动参考：8400-9300元）</span></h4>
@@ -366,13 +888,13 @@
         </div>
         <div class="model-card bg-cardBg rounded-lg p-5 mb-4 border-l-4 border-blue-500" data-major="cs" data-price="8k">
             <div class="flex flex-col md:flex-row gap-5 items-start">
-                <img class="lap-img" alt="ROG魔霸6 Pro" src="tianxuan6pro.jpg">
+                <img class="lap-img" alt="ROG魔霸新锐 2025" src="mobaxinrui2025.jpg">
                 <div>
                     <span class="inline-block bg-purple-100 text-purple-700 text-xs px-2 py-1 rounded mb-2">高性能编程顶配｜8k+</span>
-                    <h4 class="font-bold text-lg">③ ROG魔霸6 Pro <span class="text-gray-500 text-base">（活动参考：8600-9500元）</span></h4>
+                    <h4 class="font-bold text-lg">③ ROG魔霸新锐 2025 <span class="text-gray-500 text-base">（活动参考：8600-9500元）</span></h4>
                     <p class="text-orange-600 font-medium text-sm">✅ 认准配置：R9-8945HX + RTX5070 +32G +1T</p>
                     <p class="my-2">持续释放稳定，长时间训练模型不降频，颜值做工优秀。</p>
-                    <a target="_blank" href="https://search.jd.com/Search?keyword=ROG魔霸6 Pro" class="buy-btn">
+                    <a target="_blank" href="https://search.jd.com/Search?keyword=ROG魔霸新锐 2025" class="buy-btn">
                         <i class="fa fa-shopping-cart"></i> 京东官方搜索
                     </a>
                 </div>
