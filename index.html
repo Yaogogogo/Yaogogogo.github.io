@@ -90,7 +90,7 @@
         <ul class="space-y-2 mt-2 text-gray-700">
             <li>1. 页面标注价格为<strong>大促、叠加学生优惠、优惠券后的活动参考区间</strong>；电商日常挂牌价普遍偏高，属于正常现象。</li>
             <li>2. 同型号笔记本分为多种内存、硬盘配置，不同版本差价很大，下单前核对推荐配置！</li>
-            <li>3. 笔记本价格受开学季、库存、促销活动、各地区国补力度不一等因素动态浮动，页面价格仅作比价参考，不作为实时成交价。</li>
+            <li>3. 笔记本价格受开学季、库存、促销活动、各地区国补力度不同等因素动态浮动，页面价格仅作比价参考，不作为实时成交价。</li>
             <li>4. 优先选择【京东自营官方旗舰店】下单，第三方店铺标价过低，警惕改装机、翻新机。</li>
             <li class="text-red-600 font-medium">⚠️ 微信内置浏览器无法自动唤起京东APP，请复制链接在手机自带浏览器打开，可直接跳转京东App！</li>
         </ul>
@@ -101,11 +101,12 @@
         <h2 class="text-xl font-bold border-l-4 border-primary pl-3 mb-5">重要避坑指南</h2>
         <div class="bg-danger p-5 rounded-lg">
             <ul class="space-y-2">
-                <li>❌ 不要电脑城线下购机，极易被转型、加价、更换低配机型；优先京东自营、天猫官方品牌旗舰店。</li>
+                <li>❌ 不要电脑城线下购机，极易被转型、加价、更换低配机型；优先京东自营、品牌天猫官方旗舰店。</li>
                 <li>❌ 不要迷信i7一定强于i5，区分代次，新款中端＞老旧高端。</li>
                 <li>❌ 小白慎买二手笔记本，翻新、暗病风险极高。</li>
                 <li>❌ Mac慎重选择！大量工科软件、建模插件不兼容，游戏支持少；文科、影视设计再考虑Mac。</li>
                 <li>❌ 拒绝商家私自改装的“定制机”，优先官方标配。</li>
+                <li>❌ 本指导只作以参考，在本指导下购买到的电脑出现一切问题作者均不负责</li>
             </ul>
         </div>
     </section>
@@ -902,12 +903,38 @@
             </div>
         </div>
     </section>
+
+<!-- 避坑指南 -->
+    <section id="warn" class="bg-white rounded-xl p-6 md:p-8 card-shadow mb-6">
+        <h2 class="text-xl font-bold border-l-4 border-primary pl-3 mb-5">重要避坑指南</h2>
+        <div class="bg-danger p-5 rounded-lg">
+            <ul class="space-y-2">
+                <li>❌ 不要电脑城线下购机，极易被转型、加价、更换低配机型；优先京东自营、品牌天猫官方旗舰店。</li>
+                <li>❌ 不要迷信i7一定强于i5，区分代次，新款中端＞老旧高端。</li>
+                <li>❌ 小白慎买二手笔记本，翻新、暗病风险极高。</li>
+                <li>❌ Mac慎重选择！大量工科软件、建模插件不兼容，游戏支持少；文科、影视设计再考虑Mac。</li>
+                <li>❌ 拒绝商家私自改装的“定制机”，优先官方标配。</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 结尾建议 -->
+    <section class="bg-white rounded-xl p-6 md:p-8 card-shadow mb-6">
+        <h2 class="text-xl font-bold border-l-4 border-primary pl-3 mb-5">最后的建议</h2>
+        <div class="bg-warning p-5 rounded-lg">
+            <p class="mb-2">笔记本只是学习工具，不必互相攀比。优先联想、惠普、华硕、华为、荣耀等一线品牌，售后覆盖更广。</p>
+            <p>下单前建议加入本专业新生群咨询学长学姐：确认专业强制软件、系统要求，再最终确定机型！</p>
+            <p class="mt-3 text-sm text-gray-600">⚠️ 点击购买按钮会跳转京东搜索页面，请认准【京东自营官方旗舰店】下单，第三方店铺谨慎选择！</p>
+        </div>
+    </section>
+
+    <footer class="text-center py-6 text-gray-500 text-sm">
+        本选购指南由白银叔叔和梨形脸制作｜仅供参考｜最终解释权归白银叔叔和梨形脸所有
+    </footer>
 </div>
 
 <script>
 function filterModels(){
-    document.getElementById('filterResult').innerHTML = "";
-    
     const selMajor = document.getElementById('selMajor').value;
     const selPrice = document.getElementById('selPrice').value;
     const allCards = document.querySelectorAll('.model-card');
